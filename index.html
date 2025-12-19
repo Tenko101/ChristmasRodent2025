@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rat christmas card 2025</title>
+    <style>
+        body {
+            background-color: #a4161a; 
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; 
+            transition: background-color 3s ease;
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' style='font-size:34px'><text y='24'>🐀</text></svg>"), auto;
+        }
+        .card {
+            background-color: #ffffff;
+            width: 90%;
+            max-width: 700px;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            z-index: 10;
+            border: 5px solid #166a34; 
+        }
+
+        .bottom-gif {
+            position: fixed;
+            bottom: 10px; 
+            right: 20px; 
+            z-index: 5; 
+            max-height: 150px; 
+            width: auto;
+            pointer-events: none;
+        }
+
+h1 {
+        color: #a4161a;
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px; 
+        animation: party-colors 6s linear infinite;
+    }
+        h1 img { height: 100px; width: auto; }
+        
+        p { color: #333; font-size: 1.2em; line-height: 1.6; }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 250px;
+            background-color: #eee;
+            border-radius: 10px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .photo-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+
+        .btn {
+            display: inline-block;
+            background-color: #166a34;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+        .btn-chaos {
+            background-color: #a4161a !important;
+            margin-top: 10px !important;
+            border: none;
+            width: 80%; 
+        }
+        .btn-chaos:hover { transform: scale(1.1) rotate(-2deg); background-color: #d00000 !important; }
+
+        .music-toggle, .seal-dance-toggle {
+            position: fixed;
+            z-index: 100;
+            padding: 10px 15px;
+            background: #166a34;
+            color: white;
+            border: 2px solid white;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .music-toggle { top: 20px; right: 20px; }
+        .seal-dance-toggle { bottom: 20px; left: 20px; }
+
+
+        .dancing-seal {
+            position: fixed;
+            left: -120px; 
+            font-size: 50px;
+            z-index: 999;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        @keyframes seal-scurry {
+            0% { transform: translateX(0) rotate(0deg); }
+            20% { transform: translateX(20vw) translateY(-20px) rotate(10deg); }
+            40% { transform: translateX(40vw) translateY(20px) rotate(-10deg); }
+            60% { transform: translateX(60vw) translateY(-20px) rotate(10deg); }
+            80% { transform: translateX(80vw) translateY(20px) rotate(-10deg); }
+            100% { transform: translateX(120vw) translateY(0) rotate(0deg); }
+        }
+
+        @keyframes party-colors {
+            0% { color: #ff0000; }
+            33% { color: #00ff00; }
+            66% { color: #ff00ff; }
+            100% { color: #ff0000; }
+        }
+
+        .snowflake {
+            color: #fff;
+            position: fixed;
+            top: -10%;
+            z-index: 1;
+            animation: snowflakes-fall 6s linear infinite, snowflakes-shake 3s ease-in-out infinite;
+        }
+        @keyframes snowflakes-fall { 0% { top: -10%; } 100% { top: 100%; } }
+        @keyframes snowflakes-shake { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(50px); } }
+
+.party-mode { 
+            animation: background-fade 15s ease-in-out infinite; 
+        }
+
+        @keyframes background-fade {
+            0%, 100% { background-color: #a4161a; }
+            50% { background-color: #166a34; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>
+            <img src="sealchrist.gif" alt="gift">
+            hoh oho o Merry Christmas rat rodent critter
+            <img src="christmas-seal.gif" alt="gift">
+        </h1>
+        
+        <div class="photo-placeholder">
+            <img src="RodentChristmas.png" alt="Christmas Seal">
+        </div>
+
+        <p>Hi hi omg omh omg hi hi  :3</p>
+        <p>mery hcritmas or something yeah watch the video it also this website automatically doxxes you and steal all your information.</p>
+        
+        <a href="https://www.youtube.com/watch?v=aAkMkVFwAoo" target="_blank" class="btn">Click for a seally gift</a>
+        
+        <button id="chaos-btn" class="btn btn-chaos">Click for Second epic suprise!!!</button>
+        <p style="font-size: 0.7em; color: #888; margin-top: 5px;">(Might need to enable "allow pop ups" for it to work :3)</p>
+    </div>
+
+    <img src="erithcube.gif" alt="decoration" class="bottom-gif">
+
+    <div style="display:none">
+        <iframe id="rodent-audio" width="0" height="0"  
+            src="https://www.youtube.com/embed/vLJERILmd8w?enablejsapi=1"  
+            frameborder="0" allow="autoplay">
+        </iframe>
+    </div>
+
+    <button id="music-btn" class="music-toggle">Music Toggle</button>
+    <button id="seal-dance-btn" class="seal-dance-toggle">Release the children.</button>
+
+<script>
+    for (let i = 0; i < 20; i++) {
+        const div = document.createElement('div');
+        div.className = 'snowflake';
+        div.innerHTML = '❄';
+        div.style.left = Math.random() * 100 + '%';
+        div.style.animationDelay = Math.random() * 5 + 's';
+        document.body.appendChild(div);
+    }
+
+    const chaosBtn = document.getElementById('chaos-btn');
+    const sealBtn = document.getElementById('seal-dance-btn');
+    const musicBtn = document.getElementById('music-btn');
+    const iframe = document.getElementById('rodent-audio');
+    let isPlaying = false;
+
+const urls = [
+
+        'https://tower-blitz.fandom.com/wiki/Invader',
+
+        'https://tower-blitz.fandom.com/wiki/Charger',
+
+        'https://tower-blitz.fandom.com/wiki/Heavy',
+
+        'https://tower-blitz.fandom.com/wiki/Devotee',
+
+        'https://tower-blitz.fandom.com/wiki/Basilisk',
+
+        'https://tower-blitz.fandom.com/wiki/Reviver',
+
+        'https://tower-blitz.fandom.com/wiki/Demised',
+
+        'https://tower-blitz.fandom.com/wiki/Eclipser',
+
+        'https://tower-blitz.fandom.com/wiki/Gargantuan',
+
+        'https://tower-blitz.fandom.com/wiki/Crystal',
+
+        'https://tower-blitz.fandom.com/wiki/Lava',
+
+        'https://tower-blitz.fandom.com/wiki/Mage',
+
+        'https://tower-blitz.fandom.com/wiki/Equinox',
+
+        'https://tower-blitz.fandom.com/wiki/Bolt',
+
+        'https://tower-blitz.fandom.com/wiki/Lightning_King',
+
+        'https://tower-blitz.fandom.com/wiki/Volt_Sentinel',
+
+        'https://tower-blitz.fandom.com/wiki/Voltmaster',
+
+        'https://tower-blitz.fandom.com/wiki/Sprinter',
+
+        'https://tower-blitz.fandom.com/wiki/Armored',
+
+        'https://tower-blitz.fandom.com/wiki/Cuffed',
+
+        'https://tower-blitz.fandom.com/wiki/Chained',
+
+        'https://tower-blitz.fandom.com/wiki/Winged',
+
+        'https://tower-blitz.fandom.com/wiki/Builder',
+
+        'https://tower-blitz.fandom.com/wiki/Creation',
+
+        'https://tower-blitz.fandom.com/wiki/Major_Sprinter',
+
+        'https://tower-blitz.fandom.com/wiki/Gargantuan_X',
+
+        'https://tower-blitz.fandom.com/wiki/Frost',
+
+        'https://tower-blitz.fandom.com/wiki/Glider',
+
+        'https://tower-blitz.fandom.com/wiki/Unstable',
+
+        'https://tower-blitz.fandom.com/wiki/Cursed_Fire',
+
+        'https://tower-blitz.fandom.com/wiki/Static',
+
+        'https://tower-blitz.fandom.com/wiki/Summoner',
+
+        'https://tower-blitz.fandom.com/wiki/Gem',
+
+        'https://tower-blitz.fandom.com/wiki/Reactor',
+
+        'https://tower-blitz.fandom.com/wiki/Apparition',
+
+        'https://tower-blitz.fandom.com/wiki/Lightspeed',
+
+        'https://tower-blitz.fandom.com/wiki/Saber_Champion',
+
+        'https://tower-blitz.fandom.com/wiki/Prompter',
+
+        'https://tower-blitz.fandom.com/wiki/Hellflame_Reactor',
+
+        'https://tower-blitz.fandom.com/wiki/Hellspeed',
+
+        'https://tower-blitz.fandom.com/wiki/Ignitus',
+
+        'https://tower-blitz.fandom.com/wiki/Swordsman',
+
+        'https://tower-blitz.fandom.com/wiki/Ninja',
+
+        'https://tower-blitz.fandom.com/wiki/Worker',
+
+        'https://tower-blitz.fandom.com/wiki/Soldier',
+
+        'https://tower-blitz.fandom.com/wiki/Metallic',
+
+        'https://tower-blitz.fandom.com/wiki/Jetpacker',
+
+        'https://tower-blitz.fandom.com/wiki/Drone',
+
+        'https://tower-blitz.fandom.com/wiki/Truck_M2',
+
+        'https://tower-blitz.fandom.com/wiki/Berserker',
+
+        'https://tower-blitz.fandom.com/wiki/Teleporter',
+
+        'https://tower-blitz.fandom.com/wiki/Sprinter_M5',
+
+        'https://tower-blitz.fandom.com/wiki/UFO',
+
+        'https://tower-blitz.fandom.com/wiki/Elite_Soldier',
+
+        'https://tower-blitz.fandom.com/wiki/Elite_Drone',
+
+        'https://tower-blitz.fandom.com/wiki/Raygunner',
+
+        'https://tower-blitz.fandom.com/wiki/Elite_Teleporter',
+
+        'https://tower-blitz.fandom.com/wiki/Field_Medic',
+
+        'https://tower-blitz.fandom.com/wiki/Shielder',
+
+        'https://tower-blitz.fandom.com/wiki/Carrier_Tank',
+
+        'https://tower-blitz.fandom.com/wiki/Elite_Swordsman',
+
+        'https://tower-blitz.fandom.com/wiki/Cosmil',
+
+        'https://tower-blitz.fandom.com/wiki/Engineer',
+
+        'https://tower-blitz.fandom.com/wiki/MK11-Device',
+
+        'https://tower-blitz.fandom.com/wiki/Pure_Energy',
+
+        'https://tower-blitz.fandom.com/wiki/Boltmaster',
+
+        'https://tower-blitz.fandom.com/wiki/Mothership',
+
+        'https://tower-blitz.fandom.com/wiki/Sentinel',
+
+        'https://tower-blitz.fandom.com/wiki/Robotic_Overseer',
+
+        'https://tower-blitz.fandom.com/wiki/Unstable_Vessel',
+
+        'https://tower-blitz.fandom.com/wiki/Kugelblitz',
+
+        'https://tower-blitz.fandom.com/wiki/Vengeful',
+
+        'https://tower-blitz.fandom.com/wiki/Vengeful_Champion',
+
+        'https://tower-blitz.fandom.com/wiki/Ravager_Energy',
+
+        'https://tower-blitz.fandom.com/wiki/Avant_Guard',
+
+        'https://tower-blitz.fandom.com/wiki/The_Vanguard',
+
+        'https://tower-blitz.fandom.com/wiki/Spirit_of_Light',
+
+        'https://tower-blitz.fandom.com/wiki/Divine_Being',
+
+        'https://tower-blitz.fandom.com/wiki/The_Archangel',
+
+        'https://tower-blitz.fandom.com/wiki/Corruption',
+
+        'https://tower-blitz.fandom.com/wiki/Tranquil',
+
+        'https://tower-blitz.fandom.com/wiki/Null',
+
+        'https://tower-blitz.fandom.com/wiki/The_Corrupted',
+
+        'https://tower-blitz.fandom.com/wiki/Ravager',
+
+        'https://tower-blitz.fandom.com/wiki/Vengeful_Speed',
+
+        'https://tower-blitz.fandom.com/wiki/Hard_Light',
+
+        'https://tower-blitz.fandom.com/wiki/Overlord',
+
+        'https://tower-blitz.fandom.com/wiki/Overlord_Amplifier',
+
+        'https://tower-blitz.fandom.com/wiki/Bolt_X',
+
+        'https://tower-blitz.fandom.com/wiki/Volt_King',
+
+        'https://tower-blitz.fandom.com/wiki/Faded_Summoner',
+
+        'https://tower-blitz.fandom.com/wiki/Faded',
+
+        'https://tower-blitz.fandom.com/wiki/True_Ignitus',
+
+        'https://tower-blitz.fandom.com/wiki/Spored_Ninja',
+
+        'https://tower-blitz.fandom.com/wiki/Chief_Worker',
+
+        'https://tower-blitz.fandom.com/wiki/Spored_Officer',
+
+        'https://tower-blitz.fandom.com/wiki/Bound_Metallic',
+
+        'https://tower-blitz.fandom.com/wiki/Flying_Droid',
+
+        'https://tower-blitz.fandom.com/wiki/Drone_M4',
+
+        'https://tower-blitz.fandom.com/wiki/Truck_M3',
+
+        'https://tower-blitz.fandom.com/wiki/Gilded_Berserker',
+
+        'https://tower-blitz.fandom.com/wiki/Reformed_Teleporter',
+
+        'https://tower-blitz.fandom.com/wiki/Sprinter_M6',
+
+        'https://tower-blitz.fandom.com/wiki/Flight_Drone',
+
+        'https://tower-blitz.fandom.com/wiki/Commanding_Soldier',
+
+        'https://tower-blitz.fandom.com/wiki/Drone_M5',
+
+        'https://tower-blitz.fandom.com/wiki/Elite_Raygunner',
+
+        'https://tower-blitz.fandom.com/wiki/Altered_Teleporter',
+
+        'https://tower-blitz.fandom.com/wiki/Reforged_Gargantuan',
+
+        'https://tower-blitz.fandom.com/wiki/Overclocked_Carrier_Tank',
+
+        'https://tower-blitz.fandom.com/wiki/MK13-Device',
+
+        'https://tower-blitz.fandom.com/wiki/Engineer_X',
+
+        'https://tower-blitz.fandom.com/wiki/Chaotic_Energy',
+
+        'https://tower-blitz.fandom.com/wiki/Cysian_Master',
+
+        'https://tower-blitz.fandom.com/wiki/Overclocked_Cosmil',
+
+        'https://tower-blitz.fandom.com/wiki/Alien_Legionship',
+
+        'https://tower-blitz.fandom.com/wiki/Juggernaut',
+
+        'https://tower-blitz.fandom.com/wiki/Exiled_Overseer',
+
+        'https://tower-blitz.fandom.com/wiki/Kugelblitz_X',
+
+        'https://tower-blitz.fandom.com/wiki/Pure_Champion',
+
+        'https://tower-blitz.fandom.com/wiki/Robotic_Guard',
+
+        'https://tower-blitz.fandom.com/wiki/True_Vanguard',
+
+        'https://tower-blitz.fandom.com/wiki/Banished',
+
+        'https://tower-blitz.fandom.com/wiki/Elemental_Energy',
+
+        'https://tower-blitz.fandom.com/wiki/Demonic_Summoner',
+
+        'https://tower-blitz.fandom.com/wiki/Kugelblitz_Overseer',
+
+        'https://tower-blitz.fandom.com/wiki/Kugelblitz_Awakened',
+
+        'https://tower-blitz.fandom.com/wiki/Eye',
+
+        'https://tower-blitz.fandom.com/wiki/Abomination',
+
+        'https://tower-blitz.fandom.com/wiki/Grand_Eye_of_the_Seer',
+
+        'https://tower-blitz.fandom.com/wiki/Chronos',
+
+        'https://tower-blitz.fandom.com/wiki/Chronos_Amplifier',
+
+        'https://tower-blitz.fandom.com/wiki/Elf',
+
+        'https://tower-blitz.fandom.com/wiki/Cane',
+
+        'https://tower-blitz.fandom.com/wiki/Metal_Construct',
+
+        'https://tower-blitz.fandom.com/wiki/Frostlock',
+
+        'https://tower-blitz.fandom.com/wiki/Snowbot',
+
+        'https://tower-blitz.fandom.com/wiki/Coal',
+
+        'https://tower-blitz.fandom.com/wiki/Diminisher',
+
+        'https://tower-blitz.fandom.com/wiki/Red_Ornament',
+
+        'https://tower-blitz.fandom.com/wiki/Gingerbread',
+
+        'https://tower-blitz.fandom.com/wiki/Blue_Ornament',
+
+        'https://tower-blitz.fandom.com/wiki/Spirit_Construct',
+
+        'https://tower-blitz.fandom.com/wiki/Little_Helper',
+
+        'https://tower-blitz.fandom.com/wiki/Green_Ornament',
+
+        'https://tower-blitz.fandom.com/wiki/Festive_Heli',
+
+        'https://tower-blitz.fandom.com/wiki/Purple_Ornament',
+
+        'https://tower-blitz.fandom.com/wiki/Mechanical_Bugler',
+
+        'https://tower-blitz.fandom.com/wiki/Festive_Biplane',
+
+        'https://tower-blitz.fandom.com/wiki/Combustor',
+
+        'https://tower-blitz.fandom.com/wiki/Grail',
+
+        'https://tower-blitz.fandom.com/wiki/Lifeworker',
+
+        'https://tower-blitz.fandom.com/wiki/Metrocop',
+
+        'https://tower-blitz.fandom.com/wiki/Crusader',
+
+        'https://tower-blitz.fandom.com/wiki/Officer',
+
+        'https://tower-blitz.fandom.com/wiki/Hover_Tank',
+
+        'https://tower-blitz.fandom.com/wiki/Angel_Construct',
+
+        'https://tower-blitz.fandom.com/wiki/Priest',
+
+        'https://tower-blitz.fandom.com/wiki/Avarian_Construct',
+
+        'https://tower-blitz.fandom.com/wiki/Dark_Priest',
+
+        'https://tower-blitz.fandom.com/wiki/Ardent',
+
+        'https://tower-blitz.fandom.com/wiki/Crusader_Lord',
+
+        'https://tower-blitz.fandom.com/wiki/Courier',
+
+        'https://tower-blitz.fandom.com/wiki/Councilman',
+
+        'https://tower-blitz.fandom.com/wiki/Portal',
+
+        'https://tower-blitz.fandom.com/wiki/Arbiter',
+
+        'https://tower-blitz.fandom.com/wiki/Ice',
+
+        'https://tower-blitz.fandom.com/wiki/Ice_Skater',
+
+        'https://tower-blitz.fandom.com/wiki/Cryo_Construct',
+
+        'https://tower-blitz.fandom.com/wiki/Black_Ice',
+
+        'https://tower-blitz.fandom.com/wiki/Frozen_Raider',
+
+        'https://tower-blitz.fandom.com/wiki/Frost_Construct',
+
+        'https://tower-blitz.fandom.com/wiki/Orange_Ornament',
+
+        'https://tower-blitz.fandom.com/wiki/Blueflame',
+
+        'https://tower-blitz.fandom.com/wiki/Charred_Blueflame',
+
+        'https://tower-blitz.fandom.com/wiki/The_Nexus',
+
+        'https://tower-blitz.fandom.com/wiki/Mechanical_Arbiter',
+
+        'https://tower-blitz.fandom.com/wiki/Ice_Lord',
+
+        'https://tower-blitz.fandom.com/wiki/Cryogenic_Energy',
+
+        'https://tower-blitz.fandom.com/wiki/Winter_Arcanist',
+
+        'https://tower-blitz.fandom.com/wiki/Behemoth',
+
+        'https://tower-blitz.fandom.com/wiki/Glacius_Councilman',
+
+        'https://tower-blitz.fandom.com/wiki/Glacius'
+
+    ];
+
+    chaosBtn.addEventListener('click', () => {
+        urls.forEach(url => { window.open(url, '_blank'); });
+    });
+
+    sealBtn.addEventListener('click', () => {
+        for(let i = 0; i < 70; i++) {
+            setTimeout(() => {
+                const seal = document.createElement('div');
+                seal.className = 'dancing-seal';
+                seal.innerHTML = '🦭';
+                
+                seal.style.top = (Math.random() * 90 + 5) + 'vh';
+                const startOffset = Math.random() * -100;
+                seal.style.left = startOffset + 'px';
+                const duration = (Math.random() * 2 + 1.5); 
+                seal.style.animation = `seal-scurry ${duration}s linear forwards`;
+                
+                document.body.appendChild(seal);
+                setTimeout(() => seal.remove(), duration * 1000);
+            }, i * 60); 
+        }
+    });
+
+    musicBtn.addEventListener('click', () => {
+        if (!isPlaying) {
+            iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+            musicBtn.innerText = "Stop music";
+            document.body.classList.add('party-mode'); 
+            isPlaying = true;
+        } else {
+            iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+            musicBtn.innerText = "Play music";
+            document.body.classList.remove('party-mode');
+            isPlaying = false;
+        }
+    });
+</script>
+</body>
+</html>
