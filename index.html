@@ -113,8 +113,8 @@
 
         .crime-toggle {
             bottom: 20px;
-            left: 220px; /* Positioned next to the other button */
-            background: #a4161a; /* Red for danger */
+            left: 220px; 
+            background: #a4161a; 
         }
         .crime-toggle:hover { background: #d00000; }
 
@@ -272,15 +272,12 @@
     const sealBtn = document.getElementById('seal-dance-btn');
     const musicBtn = document.getElementById('music-btn');
     const iframe = document.getElementById('rodent-audio');
-    
-    // Modal Elements
     const crimeBtn = document.getElementById('crime-btn');
     const modal = document.getElementById('crimeModal');
     const closeSpan = document.getElementsByClassName("close-popup")[0];
 
     let isPlaying = false;
 
-    // Modal Logic
     crimeBtn.onclick = function() {
         modal.style.display = "block";
     }
