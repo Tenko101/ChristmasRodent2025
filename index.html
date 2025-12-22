@@ -40,16 +40,16 @@
             pointer-events: none;
         }
 
-h1 {
-        color: #a4161a;
-        font-size: 2.5em;
-        margin-bottom: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px; 
-        animation: party-colors 6s linear infinite;
-    }
+        h1 {
+            color: #a4161a;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; 
+            animation: party-colors 6s linear infinite;
+        }
         h1 img { height: 100px; width: auto; }
         
         p { color: #333; font-size: 1.2em; line-height: 1.6; }
@@ -87,11 +87,10 @@ h1 {
         }
         .btn-chaos:hover { transform: scale(1.1) rotate(-2deg); background-color: #d00000 !important; }
 
-        .music-toggle, .seal-dance-toggle {
+        .music-toggle, .seal-dance-toggle, .crime-toggle {
             position: fixed;
             z-index: 100;
             padding: 10px 15px;
-            background: #166a34;
             color: white;
             border: 2px solid white;
             border-radius: 10px;
@@ -99,8 +98,25 @@ h1 {
             font-weight: bold;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
-        .music-toggle { top: 20px; right: 20px; }
-        .seal-dance-toggle { bottom: 20px; left: 20px; }
+        
+        .music-toggle { 
+            top: 20px; 
+            right: 20px; 
+            background: #166a34;
+        }
+        
+        .seal-dance-toggle { 
+            bottom: 20px; 
+            left: 20px; 
+            background: #166a34;
+        }
+
+        .crime-toggle {
+            bottom: 20px;
+            left: 220px; /* Positioned next to the other button */
+            background: #a4161a; /* Red for danger */
+        }
+        .crime-toggle:hover { background: #d00000; }
 
 
         .dancing-seal {
@@ -111,6 +127,57 @@ h1 {
             pointer-events: none;
             user-select: none;
         }
+
+        /* Modal / Popup Styling */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.7); 
+            animation: fadeIn 0.3s;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto; 
+            padding: 20px;
+            border: 5px solid #a4161a;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 15px;
+            position: relative;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
+        }
+
+        .close-popup {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-popup:hover,
+        .close-popup:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .crime-list {
+            text-align: left;
+            background: #eee;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         @keyframes seal-scurry {
             0% { transform: translateX(0) rotate(0deg); }
@@ -138,7 +205,7 @@ h1 {
         @keyframes snowflakes-fall { 0% { top: -10%; } 100% { top: 100%; } }
         @keyframes snowflakes-shake { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(50px); } }
 
-.party-mode { 
+        .party-mode { 
             animation: background-fade 15s ease-in-out infinite; 
         }
 
@@ -181,6 +248,26 @@ h1 {
 
     <button id="music-btn" class="music-toggle">Music Toggle</button>
     <button id="seal-dance-btn" class="seal-dance-toggle">Release the children.</button>
+    <button id="crime-btn" class="crime-toggle">Rat Crime list</button>
+
+    <div id="crimeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-popup">&times;</span>
+            <h2 style="color:#a4161a;">⚠️ MOST WANTED ⚠️</h2>
+            <img src="https://media.tenor.com/On7kvXwcxQIAAAAi/rat-eating.gif" alt="Criminal Rat" style="width: 100%; max-height: 200px; object-fit: contain;">
+            <div class="crime-list">
+                <strong>CRIMES COMMITTED:</strong>
+                <ul>
+                    <li>Grand Larceny (stole cheese)</li>
+                    <li>Arson (chewed festive lights)</li>
+                    <li>Tax Evasion (since 2018)</li>
+                    <li>Being too silly in public</li>
+                    <li>Unlicensed Scurrying</li>
+                </ul>
+            </div>
+            <p><strong>Bounty:</strong> 1 Billion Dolars</p>
+        </div>
+    </div>
 
 <script>
     for (let i = 0; i < 20; i++) {
@@ -196,376 +283,213 @@ h1 {
     const sealBtn = document.getElementById('seal-dance-btn');
     const musicBtn = document.getElementById('music-btn');
     const iframe = document.getElementById('rodent-audio');
+    
+    // Modal Elements
+    const crimeBtn = document.getElementById('crime-btn');
+    const modal = document.getElementById('crimeModal');
+    const closeSpan = document.getElementsByClassName("close-popup")[0];
+
     let isPlaying = false;
 
+    // Modal Logic
+    crimeBtn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    closeSpan.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
 const urls = [
-
         'https://tower-blitz.fandom.com/wiki/Invader',
-
         'https://tower-blitz.fandom.com/wiki/Charger',
-
         'https://tower-blitz.fandom.com/wiki/Heavy',
-
         'https://tower-blitz.fandom.com/wiki/Devotee',
-
         'https://tower-blitz.fandom.com/wiki/Basilisk',
-
         'https://tower-blitz.fandom.com/wiki/Reviver',
-
         'https://tower-blitz.fandom.com/wiki/Demised',
-
         'https://tower-blitz.fandom.com/wiki/Eclipser',
-
         'https://tower-blitz.fandom.com/wiki/Gargantuan',
-
         'https://tower-blitz.fandom.com/wiki/Crystal',
-
         'https://tower-blitz.fandom.com/wiki/Lava',
-
         'https://tower-blitz.fandom.com/wiki/Mage',
-
         'https://tower-blitz.fandom.com/wiki/Equinox',
-
         'https://tower-blitz.fandom.com/wiki/Bolt',
-
         'https://tower-blitz.fandom.com/wiki/Lightning_King',
-
         'https://tower-blitz.fandom.com/wiki/Volt_Sentinel',
-
         'https://tower-blitz.fandom.com/wiki/Voltmaster',
-
         'https://tower-blitz.fandom.com/wiki/Sprinter',
-
         'https://tower-blitz.fandom.com/wiki/Armored',
-
         'https://tower-blitz.fandom.com/wiki/Cuffed',
-
         'https://tower-blitz.fandom.com/wiki/Chained',
-
         'https://tower-blitz.fandom.com/wiki/Winged',
-
         'https://tower-blitz.fandom.com/wiki/Builder',
-
         'https://tower-blitz.fandom.com/wiki/Creation',
-
         'https://tower-blitz.fandom.com/wiki/Major_Sprinter',
-
         'https://tower-blitz.fandom.com/wiki/Gargantuan_X',
-
         'https://tower-blitz.fandom.com/wiki/Frost',
-
         'https://tower-blitz.fandom.com/wiki/Glider',
-
         'https://tower-blitz.fandom.com/wiki/Unstable',
-
         'https://tower-blitz.fandom.com/wiki/Cursed_Fire',
-
         'https://tower-blitz.fandom.com/wiki/Static',
-
         'https://tower-blitz.fandom.com/wiki/Summoner',
-
         'https://tower-blitz.fandom.com/wiki/Gem',
-
         'https://tower-blitz.fandom.com/wiki/Reactor',
-
         'https://tower-blitz.fandom.com/wiki/Apparition',
-
         'https://tower-blitz.fandom.com/wiki/Lightspeed',
-
         'https://tower-blitz.fandom.com/wiki/Saber_Champion',
-
         'https://tower-blitz.fandom.com/wiki/Prompter',
-
         'https://tower-blitz.fandom.com/wiki/Hellflame_Reactor',
-
         'https://tower-blitz.fandom.com/wiki/Hellspeed',
-
         'https://tower-blitz.fandom.com/wiki/Ignitus',
-
         'https://tower-blitz.fandom.com/wiki/Swordsman',
-
         'https://tower-blitz.fandom.com/wiki/Ninja',
-
         'https://tower-blitz.fandom.com/wiki/Worker',
-
         'https://tower-blitz.fandom.com/wiki/Soldier',
-
         'https://tower-blitz.fandom.com/wiki/Metallic',
-
         'https://tower-blitz.fandom.com/wiki/Jetpacker',
-
         'https://tower-blitz.fandom.com/wiki/Drone',
-
         'https://tower-blitz.fandom.com/wiki/Truck_M2',
-
         'https://tower-blitz.fandom.com/wiki/Berserker',
-
         'https://tower-blitz.fandom.com/wiki/Teleporter',
-
         'https://tower-blitz.fandom.com/wiki/Sprinter_M5',
-
         'https://tower-blitz.fandom.com/wiki/UFO',
-
         'https://tower-blitz.fandom.com/wiki/Elite_Soldier',
-
         'https://tower-blitz.fandom.com/wiki/Elite_Drone',
-
         'https://tower-blitz.fandom.com/wiki/Raygunner',
-
         'https://tower-blitz.fandom.com/wiki/Elite_Teleporter',
-
         'https://tower-blitz.fandom.com/wiki/Field_Medic',
-
         'https://tower-blitz.fandom.com/wiki/Shielder',
-
         'https://tower-blitz.fandom.com/wiki/Carrier_Tank',
-
         'https://tower-blitz.fandom.com/wiki/Elite_Swordsman',
-
         'https://tower-blitz.fandom.com/wiki/Cosmil',
-
         'https://tower-blitz.fandom.com/wiki/Engineer',
-
         'https://tower-blitz.fandom.com/wiki/MK11-Device',
-
         'https://tower-blitz.fandom.com/wiki/Pure_Energy',
-
         'https://tower-blitz.fandom.com/wiki/Boltmaster',
-
         'https://tower-blitz.fandom.com/wiki/Mothership',
-
         'https://tower-blitz.fandom.com/wiki/Sentinel',
-
         'https://tower-blitz.fandom.com/wiki/Robotic_Overseer',
-
         'https://tower-blitz.fandom.com/wiki/Unstable_Vessel',
-
         'https://tower-blitz.fandom.com/wiki/Kugelblitz',
-
         'https://tower-blitz.fandom.com/wiki/Vengeful',
-
         'https://tower-blitz.fandom.com/wiki/Vengeful_Champion',
-
         'https://tower-blitz.fandom.com/wiki/Ravager_Energy',
-
         'https://tower-blitz.fandom.com/wiki/Avant_Guard',
-
         'https://tower-blitz.fandom.com/wiki/The_Vanguard',
-
         'https://tower-blitz.fandom.com/wiki/Spirit_of_Light',
-
         'https://tower-blitz.fandom.com/wiki/Divine_Being',
-
         'https://tower-blitz.fandom.com/wiki/The_Archangel',
-
         'https://tower-blitz.fandom.com/wiki/Corruption',
-
         'https://tower-blitz.fandom.com/wiki/Tranquil',
-
         'https://tower-blitz.fandom.com/wiki/Null',
-
         'https://tower-blitz.fandom.com/wiki/The_Corrupted',
-
         'https://tower-blitz.fandom.com/wiki/Ravager',
-
         'https://tower-blitz.fandom.com/wiki/Vengeful_Speed',
-
         'https://tower-blitz.fandom.com/wiki/Hard_Light',
-
         'https://tower-blitz.fandom.com/wiki/Overlord',
-
         'https://tower-blitz.fandom.com/wiki/Overlord_Amplifier',
-
         'https://tower-blitz.fandom.com/wiki/Bolt_X',
-
         'https://tower-blitz.fandom.com/wiki/Volt_King',
-
         'https://tower-blitz.fandom.com/wiki/Faded_Summoner',
-
         'https://tower-blitz.fandom.com/wiki/Faded',
-
         'https://tower-blitz.fandom.com/wiki/True_Ignitus',
-
         'https://tower-blitz.fandom.com/wiki/Spored_Ninja',
-
         'https://tower-blitz.fandom.com/wiki/Chief_Worker',
-
         'https://tower-blitz.fandom.com/wiki/Spored_Officer',
-
         'https://tower-blitz.fandom.com/wiki/Bound_Metallic',
-
         'https://tower-blitz.fandom.com/wiki/Flying_Droid',
-
         'https://tower-blitz.fandom.com/wiki/Drone_M4',
-
         'https://tower-blitz.fandom.com/wiki/Truck_M3',
-
         'https://tower-blitz.fandom.com/wiki/Gilded_Berserker',
-
         'https://tower-blitz.fandom.com/wiki/Reformed_Teleporter',
-
         'https://tower-blitz.fandom.com/wiki/Sprinter_M6',
-
         'https://tower-blitz.fandom.com/wiki/Flight_Drone',
-
         'https://tower-blitz.fandom.com/wiki/Commanding_Soldier',
-
         'https://tower-blitz.fandom.com/wiki/Drone_M5',
-
         'https://tower-blitz.fandom.com/wiki/Elite_Raygunner',
-
         'https://tower-blitz.fandom.com/wiki/Altered_Teleporter',
-
         'https://tower-blitz.fandom.com/wiki/Reforged_Gargantuan',
-
         'https://tower-blitz.fandom.com/wiki/Overclocked_Carrier_Tank',
-
         'https://tower-blitz.fandom.com/wiki/MK13-Device',
-
         'https://tower-blitz.fandom.com/wiki/Engineer_X',
-
         'https://tower-blitz.fandom.com/wiki/Chaotic_Energy',
-
         'https://tower-blitz.fandom.com/wiki/Cysian_Master',
-
         'https://tower-blitz.fandom.com/wiki/Overclocked_Cosmil',
-
         'https://tower-blitz.fandom.com/wiki/Alien_Legionship',
-
         'https://tower-blitz.fandom.com/wiki/Juggernaut',
-
         'https://tower-blitz.fandom.com/wiki/Exiled_Overseer',
-
         'https://tower-blitz.fandom.com/wiki/Kugelblitz_X',
-
         'https://tower-blitz.fandom.com/wiki/Pure_Champion',
-
         'https://tower-blitz.fandom.com/wiki/Robotic_Guard',
-
         'https://tower-blitz.fandom.com/wiki/True_Vanguard',
-
         'https://tower-blitz.fandom.com/wiki/Banished',
-
         'https://tower-blitz.fandom.com/wiki/Elemental_Energy',
-
         'https://tower-blitz.fandom.com/wiki/Demonic_Summoner',
-
         'https://tower-blitz.fandom.com/wiki/Kugelblitz_Overseer',
-
         'https://tower-blitz.fandom.com/wiki/Kugelblitz_Awakened',
-
         'https://tower-blitz.fandom.com/wiki/Eye',
-
         'https://tower-blitz.fandom.com/wiki/Abomination',
-
         'https://tower-blitz.fandom.com/wiki/Grand_Eye_of_the_Seer',
-
         'https://tower-blitz.fandom.com/wiki/Chronos',
-
         'https://tower-blitz.fandom.com/wiki/Chronos_Amplifier',
-
         'https://tower-blitz.fandom.com/wiki/Elf',
-
         'https://tower-blitz.fandom.com/wiki/Cane',
-
         'https://tower-blitz.fandom.com/wiki/Metal_Construct',
-
         'https://tower-blitz.fandom.com/wiki/Frostlock',
-
         'https://tower-blitz.fandom.com/wiki/Snowbot',
-
         'https://tower-blitz.fandom.com/wiki/Coal',
-
         'https://tower-blitz.fandom.com/wiki/Diminisher',
-
         'https://tower-blitz.fandom.com/wiki/Red_Ornament',
-
         'https://tower-blitz.fandom.com/wiki/Gingerbread',
-
         'https://tower-blitz.fandom.com/wiki/Blue_Ornament',
-
         'https://tower-blitz.fandom.com/wiki/Spirit_Construct',
-
         'https://tower-blitz.fandom.com/wiki/Little_Helper',
-
         'https://tower-blitz.fandom.com/wiki/Green_Ornament',
-
         'https://tower-blitz.fandom.com/wiki/Festive_Heli',
-
         'https://tower-blitz.fandom.com/wiki/Purple_Ornament',
-
         'https://tower-blitz.fandom.com/wiki/Mechanical_Bugler',
-
         'https://tower-blitz.fandom.com/wiki/Festive_Biplane',
-
         'https://tower-blitz.fandom.com/wiki/Combustor',
-
         'https://tower-blitz.fandom.com/wiki/Grail',
-
         'https://tower-blitz.fandom.com/wiki/Lifeworker',
-
         'https://tower-blitz.fandom.com/wiki/Metrocop',
-
         'https://tower-blitz.fandom.com/wiki/Crusader',
-
         'https://tower-blitz.fandom.com/wiki/Officer',
-
         'https://tower-blitz.fandom.com/wiki/Hover_Tank',
-
         'https://tower-blitz.fandom.com/wiki/Angel_Construct',
-
         'https://tower-blitz.fandom.com/wiki/Priest',
-
         'https://tower-blitz.fandom.com/wiki/Avarian_Construct',
-
         'https://tower-blitz.fandom.com/wiki/Dark_Priest',
-
         'https://tower-blitz.fandom.com/wiki/Ardent',
-
         'https://tower-blitz.fandom.com/wiki/Crusader_Lord',
-
         'https://tower-blitz.fandom.com/wiki/Courier',
-
         'https://tower-blitz.fandom.com/wiki/Councilman',
-
         'https://tower-blitz.fandom.com/wiki/Portal',
-
         'https://tower-blitz.fandom.com/wiki/Arbiter',
-
         'https://tower-blitz.fandom.com/wiki/Ice',
-
         'https://tower-blitz.fandom.com/wiki/Ice_Skater',
-
         'https://tower-blitz.fandom.com/wiki/Cryo_Construct',
-
         'https://tower-blitz.fandom.com/wiki/Black_Ice',
-
         'https://tower-blitz.fandom.com/wiki/Frozen_Raider',
-
         'https://tower-blitz.fandom.com/wiki/Frost_Construct',
-
         'https://tower-blitz.fandom.com/wiki/Orange_Ornament',
-
         'https://tower-blitz.fandom.com/wiki/Blueflame',
-
         'https://tower-blitz.fandom.com/wiki/Charred_Blueflame',
-
         'https://tower-blitz.fandom.com/wiki/The_Nexus',
-
         'https://tower-blitz.fandom.com/wiki/Mechanical_Arbiter',
-
         'https://tower-blitz.fandom.com/wiki/Ice_Lord',
-
         'https://tower-blitz.fandom.com/wiki/Cryogenic_Energy',
-
         'https://tower-blitz.fandom.com/wiki/Winter_Arcanist',
-
         'https://tower-blitz.fandom.com/wiki/Behemoth',
-
         'https://tower-blitz.fandom.com/wiki/Glacius_Councilman',
-
         'https://tower-blitz.fandom.com/wiki/Glacius'
-
     ];
 
     chaosBtn.addEventListener('click', () => {
