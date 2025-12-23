@@ -18,8 +18,8 @@
             transition: background-color 3s ease;
             cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' style='font-size:34px'><text y='24'>🐀</text></svg>"), auto;
         }
-        .card {
-            background-color: #ffffff;
+.card {
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2efd5 40%, #f7d6d6 70%, #ffffff 100%);
             width: 90%;
             max-width: 700px;
             padding: 40px;
@@ -27,7 +27,26 @@
             text-align: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             z-index: 10;
-            border: 5px solid #166a34; 
+            border: 8px double #166a34; 
+            position: relative;
+        }
+
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            opacity: 0.05;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20L0 40h40L20 20z' fill='%3C166a34' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        p { 
+            color: #1a1a1a;
+            font-size: 1.2em; 
+            line-height: 1.6; 
+            font-weight: 500;
+            text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
         }
 
         .bottom-gif {
