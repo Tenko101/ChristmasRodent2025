@@ -54,9 +54,11 @@
         
         p { color: #333; font-size: 1.2em; line-height: 1.6; }
 
-        .photo-placeholder {
+.photo-placeholder {
             width: 100%;
-            height: 250px;
+
+            aspect-ratio: 2016 / 1276; 
+            max-width: 2016px; 
             background-color: #eee;
             border-radius: 10px;
             margin: 20px 0;
@@ -64,6 +66,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            border: 2px solid #166a34; 
         }
         .photo-placeholder img { width: 100%; height: 100%; object-fit: cover; }
 
